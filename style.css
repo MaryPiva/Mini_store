@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+body{
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+header{
+    background-color: #111;
+    color: #fff;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.61);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+header h1{
+    font-size: 1.8rem;
+}
+#cart-icon{
+   background: #34e8f83b;
+   color: #000;
+   padding: 8px 14px;
+   border-radius: 20px;
+   font-weight: bold;
+   cursor: pointer;
+}
+main{
+    padding: 40px 8%;
+    display: flex ;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+}
+.products{
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr) );
+    gap: 20px;
+}
+.product{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.cart{
+    flex: 1;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.384);
+    height: fit-content;
+}
+.cart h2{
+    margin-bottom: 16px;
+    font-size: 1.4rem;
+}   
+#cart-items li{
+   margin-bottom: 16px;
+   font-size: 0.95rem;
+}
+#cart-items button{
+    background-color:red;
+    color: #fff;
+    border: none;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+    margin-left: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#clear-cart{
+    margin: 2px;
+    background-color: #34e7f8;
+    color: #000;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+#clear-cart:hover{
+    background-color: #12c0e0;
+}
+@media (max-width: 768px) {
+    main{
+     flex-direction: column;
+       padding: 20px;
+    }
+    .products{
+        grid-template-columns:1fr;
+    }
+    .cart{
+      margin-top: 30px;
+    }
+}

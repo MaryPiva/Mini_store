@@ -1,0 +1,85 @@
+// Dados fictícios de produtos
+const products = [
+  {
+    id: 1,
+    name: 'Headphone Blue',
+    price: 99.99,
+    image: 'img/main1.png'
+  },
+  {
+    id: 2,
+    name: 'Headphone White',
+    price: 89.99,
+    image: 'img/main2.png'
+  },
+  {
+    id: 3,
+    name: 'Headphone Black',
+    price: 120.99,
+    image: 'img/main3.png'
+  }
+];
+
+// Elementos DOM
+const productList = document.getElementById('product-list');
+const cartItems = document.getElementById('cart-items');
+const cartTotal = document.getElementById('cart-total');
+const cartCount = document.getElementById('cart-count');
+const clearCartBtn = document.getElementById('clear-cart');
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// view products
+function renderProducts() {
+  productList.innerHTML = '';
+  products.forEach(product => {
+    const div = document.createElement('div');
+    div.classList.add('product');
+    div.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      <p>£${product.price.toFixed(2)}</p>
+      <button onclick="addToCart(${product.id})">Add to Cart</button>
+    `;
+    productList.appendChild(div);
+  });
+}
+
+// add to cart
+function addToCart(id) {
+  const item = products.find(p => p.id === id);
+  cart.push(item);
+  updateCart();
+}
+
+// update cart
+function updateCart() {
+  cartItems.innerHTML = '';
+  let total = 0;
+  cart.forEach((item, index) => {
+    total += item.price;
+    const li = document.createElement('li');
+    li.innerHTML = `${item.name} - £${item.price.toFixed(2)} <button onclick="removeItem(${index})">X</button>`;
+    cartItems.appendChild(li);
+  });
+
+  cartTotal.textContent = total.toFixed(2);
+  cartCount.textContent = cart.length;
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// remove item from cart
+function removeItem(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
+
+// clear cart
+clearCartBtn.onclick = () => {
+  cart = [];
+  updateCart();
+};
+
+renderProducts();
+updateCart();

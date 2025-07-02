@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mine Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Mini Store</h1>
+        <div id="cart-icon">🛒 <span id="cart-count">0</span></div>
+    </header>
+    
+    <main>
+       
+        <section class="products" id="product-list">
+             <!-- Products will be loaded by js-->
+        </section>
+
+        <section class="cart" id="cart">
+      <h2>Your Cart</h2>
+      <ul id="cart-items"></ul>
+      <p>Total: £<span id="cart-total">0.00</span></p>
+      <button id="clear-cart">Clear Cart</button>
+    </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
