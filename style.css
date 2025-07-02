@@ -163,7 +163,36 @@ main{
 .checkout-summary li {
   margin-bottom: 6px;
 }
-
+.success-page{
+    max-width: 600px;
+    margin: 150px auto;
+    background-color: #f0fff0;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.233);
+    text-align: center;
+}
+.success-page h1 {
+    color: #28a745;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+.success-page p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+.success-page .btn{
+ display: inline-block;
+ padding: 12px 30px;
+ background-color: #28a745;
+ color: white;
+ text-decoration: none;
+ border-radius: 25px;
+ transition: 0.3s ease;
+}
+.success-page .btn:hover {
+  background-color: #1e7e34;
+}
 @media (max-width: 768px) {
     main{
      flex-direction: column;

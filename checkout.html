@@ -29,10 +29,14 @@
             <label >CVV:</label>
             <input type="text" required> <br>
 
-            <button type="submit">Pay Now</button>
         </form>
+        <form onsubmit="handlePayment(event)">
+          <button type="submit">Pay Now</button>
+        </form>
+
     </div>
      <script>
+  // 🛒 Exibir itens do carrinho
   const itemsContainer = document.getElementById("checkout-items");
   const totalContainer = document.getElementById("checkout-total");
 
@@ -47,7 +51,14 @@
   });
 
   totalContainer.textContent = total.toFixed(2);
-  </script>
+
+  // 💳 Função de pagamento
+  function handlePayment(event) {
+    event.preventDefault();
+    localStorage.removeItem("cart");
+    window.location.href = "success.html";
+  }
+</script>
 
 </body>
 </html>
