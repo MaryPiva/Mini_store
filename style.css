@@ -80,7 +80,7 @@ main{
     cursor: pointer;
 }
 #clear-cart{
-    margin: 2px;
+    margin-top: 20px;
     background-color: #34e7f8;
     color: #000;
     border: none;
@@ -91,8 +91,57 @@ main{
     width: 100%;
     transition: background 0.3s ease;
 }
+#checkout-cart{
+    margin-top: 20px;
+    background-color: #34e7f8;
+    color: #000;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+#checkout-cart:hover{
+    background-color:#1e7e34;
+}
 #clear-cart:hover{
     background-color: #12c0e0;
+}
+.checkout-page {
+    max-width: 400px;
+    margin: 100px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.425);
+    text-align: left;
+}
+.checkout-page h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+.checkout-page input{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.checkout-page button {
+    width: 100%;
+    padding: 10px;
+    background-color: #34e7f8;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.checkout-page button:hover {
+    background-color: #1e7e34;
 }
 @media (max-width: 768px) {
     main{
