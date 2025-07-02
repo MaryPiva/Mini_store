@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Mini Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="checkout-summary">
+        <h3>Order Summary</h3>
+        <ul id="checkout-items"></ul>
+        <p>Total: £<span id="checkout-total">0.00</span></p>
+    </div>
+
+    <div class="checkout-page">
+        <h2>Checkout</h2>
+        <p>This is a simulated payment screen.</p>
+        <form >
+            <label >Name on Card:</label>
+            <input type="text"><br>
+
+            <label >Card Number:</label>
+            <input type="text" placeholder="Card Number" required><br>
+          
+            <label >Expiry:</label>
+            <input type="text" placeholder="MM/YY" required><br>
+        
+            <label >CVV:</label>
+            <input type="text" required> <br>
+
+            <button type="submit">Pay Now</button>
+        </form>
+    </div>
+</body>
+</html>
