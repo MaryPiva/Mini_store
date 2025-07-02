@@ -32,5 +32,22 @@
             <button type="submit">Pay Now</button>
         </form>
     </div>
+     <script>
+  const itemsContainer = document.getElementById("checkout-items");
+  const totalContainer = document.getElementById("checkout-total");
+
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  let total = 0;
+  cart.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = `${item.name} - £${item.price.toFixed(2)}`;
+    itemsContainer.appendChild(li);
+    total += item.price;
+  });
+
+  totalContainer.textContent = total.toFixed(2);
+  </script>
+
 </body>
 </html>
