@@ -83,3 +83,15 @@ clearCartBtn.onclick = () => {
 
 renderProducts();
 updateCart();
+
+const checkoutBtn = document.getElementById('checkout-cart');
+
+checkoutBtn.onclick = () => {
+  if (cart.length === 0) {
+    alert("Your cart is empty.");
+    return;
+  }
+
+   localStorage.setItem("cart", JSON.stringify(cart));
+  window.location.href = "checkout.html";
+};
