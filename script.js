@@ -47,33 +47,57 @@ function renderProducts() {
 
 // add to cart
 function addToCart(id) {
-  const item = products.find(p => p.id === id);
-  cart.push(item);
+  const product = products.find(p => p.id === id);
+  const existing = cart.find(item => item.id === id);
+
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({ ...product, quantity: 1 });
+  }
+
   updateCart();
 }
+
 
 // update cart
 function updateCart() {
   cartItems.innerHTML = '';
   let total = 0;
+  let itemCount = 0;
+
   cart.forEach((item, index) => {
-    total += item.price;
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
+    itemCount += item.quantity;
+
     const li = document.createElement('li');
-    li.innerHTML = `${item.name} - £${item.price.toFixed(2)} <button onclick="removeItem(${index})">X</button>`;
+    li.innerHTML = `
+      ${item.name} x${item.quantity} - £${itemTotal.toFixed(2)}
+      <button onclick="removeItem(${item.id})">X</button>
+    `;
     cartItems.appendChild(li);
   });
 
   cartTotal.textContent = total.toFixed(2);
-  cartCount.textContent = cart.length;
+  cartCount.textContent = itemCount;
 
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 // remove item from cart
-function removeItem(index) {
-  cart.splice(index, 1);
+function removeItem(id) {
+  const item = cart.find(p => p.id === id);
+
+  if (item.quantity > 1) {
+    item.quantity -= 1;
+  } else {
+    cart = cart.filter(p => p.id !== id);
+  }
+
   updateCart();
 }
+
 
 // clear cart
 clearCartBtn.onclick = () => {

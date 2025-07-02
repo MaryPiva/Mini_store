@@ -44,11 +44,12 @@
 
   let total = 0;
   cart.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = `${item.name} - £${item.price.toFixed(2)}`;
-    itemsContainer.appendChild(li);
-    total += item.price;
-  });
+  const lineTotal = item.price * item.quantity;
+  const li = document.createElement("li");
+  li.textContent = `${item.name} x${item.quantity} - £${lineTotal.toFixed(2)}`;
+  itemsContainer.appendChild(li);
+  total += lineTotal;
+}); 
 
   totalContainer.textContent = total.toFixed(2);
 
